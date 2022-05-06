@@ -165,7 +165,27 @@ public class Http extends Plugin {
             Integer connectTimeout = call.getInt("connectTimeout");
             Integer readTimeout = call.getInt("readTimeout");
 
+            // Check and get the "params: { urlParamsString }"
+            String urlQuery = "";
+            if (params.has("urlParamsString")) {
+                urlQuery = params.getString("urlParamsString");
+            }
+
+            // Initially create url and uri for unEncodedUrlString
             URL url = new URL(urlString);
+            URI uri = url.toURI();
+
+            // Build the unEncodedUrlString
+            String unEncodedUrlString =
+                uri.getScheme() +
+                "://" +
+                uri.getAuthority() +
+                uri.getPath() +
+                ((!urlQuery.equals("")) ? "?" + urlQuery : "") +
+                ((uri.getFragment() != null) ? uri.getFragment() : "");
+
+            // Assembled URL for download connection
+            url = new URL(unEncodedUrlString);
 
             if (
                 !FilesystemUtils.isPublicDirectory(fileDirectory) ||
