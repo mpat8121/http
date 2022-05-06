@@ -16,11 +16,11 @@
   "author": "Max Lynch <max@ionic.io>",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "latest"
+    "@capacitor/core": "^2.4.7"
   },
   "devDependencies": {
-    "@capacitor/android": "latest",
-    "@capacitor/ios": "latest",
+    "@capacitor/android": "^2.4.7",
+    "@capacitor/ios": "^2.4.7",
     "@ionic/prettier-config": "^1.0.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
