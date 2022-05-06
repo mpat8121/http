@@ -43,7 +43,9 @@ public class CAPHttpPlugin: CAPPlugin {
     
     let fileDirectory = call.getString("fileDirectory") ?? "DOCUMENTS"
     
-    guard let url = URL(string: urlValue) else {
+    let params = (call.getObject("params") ?? [:]) as [String:String]
+    let urlString = urlValue + "?" + (params["urlParamsString"])!
+    guard let url = URL(string: urlString) else {
       return call.reject("Invalid URL")
     }
     
