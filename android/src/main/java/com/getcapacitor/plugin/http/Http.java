@@ -195,7 +195,7 @@ public class Http extends Plugin {
 
                 final File file = FilesystemUtils.getFileObject(getContext(), filePath, fileDirectory);
 
-                HttpURLConnection conn = makeUrlConnection(url, "GET", connectTimeout, readTimeout, headers, params);
+                HttpURLConnection conn = makeUrlConnection(url, "GET", connectTimeout, readTimeout, headers, null);
 
                 InputStream is = conn.getInputStream();
 
